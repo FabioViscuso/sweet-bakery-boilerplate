@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# React + TS Boilerplate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Also adds out-of-the-box support for SWR, React Router and TailwindCSS
 ## Available Scripts
 
 In the project directory, you can run:
