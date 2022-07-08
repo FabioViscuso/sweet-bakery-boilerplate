@@ -1,5 +1,15 @@
+// React dependencies
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// Redux dependencies
+import { Provider } from 'react-redux';
+import { store } from './states/Store'
+
+// React Router dependencies
+import { BrowserRouter } from 'react-router-dom';
+
+// Other dependencies
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,7 +19,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
