@@ -1,10 +1,7 @@
+// Import middleware type definition
 import { Middleware } from "@reduxjs/toolkit";
-import { RootState } from "./Store";
 
-export const loggingMiddleware:  Middleware<
-{}, // Most middleware do not modify the dispatch return value
-RootState
-> = store => next => action => {
+export const loggingMiddleware: Middleware = store => next => action => {
 
     const snapshot = next(action);
 

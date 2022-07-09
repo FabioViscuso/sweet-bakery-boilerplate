@@ -1,10 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const userLogStatus = createSlice({
-    name: 'userLogStatus',
-    initialState: false,
+const initialLoginState : loginState = {
+    isUserLogged: false
+}
+
+export interface loginState {
+    isUserLogged: boolean
+}
+
+export const userLoginStatus = createSlice({
+    name: 'userLoginStatus',
+    initialState: initialLoginState,
     reducers: {
-        login: (state, action) => state = true,
-        logout: (state, action) => state = false
+        login(state) { state.isUserLogged = true },
+        logout(state) { state.isUserLogged = false }
     }
 })
+
+export const loginActions = userLoginStatus.actions;
