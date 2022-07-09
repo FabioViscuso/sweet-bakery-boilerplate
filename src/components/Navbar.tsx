@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginActions, loginState } from "../states/logStates";
+import { loginActions, loginState } from "../store/loginSlice";
 
 export const Navbar: React.FC = () => {
     const login = useSelector((state: { login: loginState }) => state.login.isUserLogged)

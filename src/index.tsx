@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 // Redux dependencies
 import { Provider } from 'react-redux';
-import { store } from './states/Store'
+import { store } from './store/Store'
 
 // React Router dependencies
 import { BrowserRouter } from 'react-router-dom';

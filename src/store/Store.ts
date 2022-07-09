@@ -6,7 +6,7 @@ import ThunkMiddleware from "redux-thunk";
 import { loggingMiddleware } from "./loggingMiddleware";
 
 // Other dependencies
-import { userLoginStatus } from "./logStates";
+import { userLoginStatus } from "./loginSlice";
 
 export const store = configureStore({
     reducer: {
