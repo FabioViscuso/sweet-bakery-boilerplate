@@ -8,11 +8,11 @@ import { loggingMiddleware } from "./loggingMiddleware";
 // Other dependencies
 import { userLogStatus } from "./logStates";
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 const rootReducer = combineReducers({
     userLogStatus: userLogStatus.reducer
 })
-
-export type RootState = ReturnType<typeof rootReducer>;
 
 export const store = configureStore({
     reducer: rootReducer,

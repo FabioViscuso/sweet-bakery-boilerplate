@@ -1,4 +1,4 @@
-export function Footer() {
+export const Footer: React.FC = () => {
     return( 
         <div>
             <h6>React + TS boilerplate</h6>
