@@ -1,5 +1,5 @@
 // Import components
-import { CartItemComponent } from "./CartItemComponent"
+import { CartItemComponent } from "./CartItem"
 
 // Import useSelectorHook
 import { useSelector } from 'react-redux';
