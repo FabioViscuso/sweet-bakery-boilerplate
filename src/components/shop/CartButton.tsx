@@ -9,9 +9,9 @@ export const CartButton = () => {
     }
 
     return (
-        <button className='flex flex-row gap-4 items-center' onClick={toggleCartHandler}>
+        <button className='flex flex-row gap-4 items-center font-indieflower text-2xl' onClick={toggleCartHandler}>
             <span className=''>My Cart</span>
-            <span className='bg-slate-700 text-gray-100 w-8 h-8 rounded-full leading-8'>{totalItems}</span>
+            <span className='bg-pink-100 text-gray-900 w-10 h-10 rounded-full leading-10'>{totalItems}</span>
         </button>
     );
 };

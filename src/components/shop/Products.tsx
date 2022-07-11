@@ -13,7 +13,7 @@ const DUMMY_PRODUCTS: CartItem[] = [
 export const Products = () => {
     return (
         <section className='flex flex-col justify-center items-center'>
-            <h2 className='text-4xl mb-8'>Buy your favorite products</h2>
+            <h2 className='text-4xl mb-8 font-indieflower'>Buy your favorite products</h2>
             <ul className='flex flex-col gap-5 justify-center items-center'>
                 {
                     DUMMY_PRODUCTS.map(item =>

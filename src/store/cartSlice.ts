@@ -43,10 +43,10 @@ export const cartSlice = createSlice({
                 const existingItem: CartItemWithStats = { ...newItem, quantity: 1, totalAmount: newItem.price };
                 state.items.push(existingItem);
             } else {
-                state.totalQuantity++;
                 existingItem.quantity++;
                 existingItem.totalAmount += newItem.price
             }
+            state.totalQuantity++;
         },
         removeFromCart(state, action: { payload: CartItem["id"] }) {
             // extract the ID
@@ -59,10 +59,10 @@ export const cartSlice = createSlice({
             if (existingItem.quantity === 1) {
                 state.items = state.items.filter((item) => item.id !== id)
             } else {
-                state.totalQuantity--;
                 existingItem.quantity--;
                 existingItem.totalAmount -= existingItem.price;
             }
+            state.totalQuantity--;
         }
     },
 })

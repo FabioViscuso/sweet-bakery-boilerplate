@@ -8,15 +8,15 @@ export const ProductItem = (props: any) => {
 
 
     return (
-        <li className='flex flex-row rounded-md bg-slate-100 w-max px-10 py-5'>
-            <div>
+        <li className='flex flex-row rounded-md bg-slate-100 w-max font-indieflower'>
+            <div className='py-4 px-4'>
                 <header>
                     <h3 className='text-3xl'>{title}</h3>
                     <div>${price.toFixed(2)}</div>
                 </header>
                 <p>{description}</p>
             </div>
-            <button className='bg-green-400 rounded-xl w-max p-2 self-start' onClick={addItemHandler}>Add to Cart</button>
+            <button className='bg-pink-200 rounded-md w-max p-2 self-stretch' onClick={addItemHandler}>Add to Cart</button>
         </li>
     );
 };
