@@ -5,9 +5,9 @@ import { CartItem } from '../../store/cartSlice';
 import { ProductItem } from './ProductItem';
 
 const DUMMY_PRODUCTS: CartItem[] = [
-    { id: 'prod1', title: 'sneakers', price: 50.80, description: 'comfy shoes for everyday' },
-    { id: 'prod2', title: 'formal shoes', price: 108.00, description: 'elegant shoes for occasions' },
-    { id: 'prod3', title: 'crocs', price: 9.99, description: 'ugly stuff, don\'t buy' },
+    { id: 'prod1', title: 'Tiramisù', price: 4.50, description: 'A classic' },
+    { id: 'prod2', title: 'Fruit cupcake', price: 5.00, description: 'Fruity and tasty' },
+    { id: 'prod3', title: 'Cheesecake', price: 9.99, description: 'With a variety of toppings' },
 ]
 
 export const Products = () => {

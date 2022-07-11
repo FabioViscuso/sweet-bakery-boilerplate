@@ -22,8 +22,8 @@ export const CartItemComponent = (props: CartItemWithStats) => {
                 </div>
             </header>
             <div className='flex flex-col justify-center'>
-                <button className='bg-red-300 rounded-md px-3 py-2 h-1/2' onClick={removeItemHandler}>-</button>
-                <button className='bg-green-300 rounded-md px-3 py-2 h-1/2' onClick={addItemHandler}>+</button>
+                <button className='bg-pink-200 rounded-tr-md px-3 py-2 h-1/2' onClick={removeItemHandler}>-</button>
+                <button className='bg-emerald-200 rounded-br-md px-3 py-2 h-1/2' onClick={addItemHandler}>+</button>
             </div>
         </li>
     );

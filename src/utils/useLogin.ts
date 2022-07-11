@@ -2,12 +2,15 @@
 import { useDispatch, useSelector } from "react-redux";
 
 // Login slice import
-import { loginActions, loginState } from "../store/loginSlice";
+import { loginActions } from "../store/loginSlice";
+
+// RootState type import
+import { RootState } from "../store/Store";
 
 
 export const useLogin = () => {
 
-    const login = useSelector((state: { login: loginState }) => state.login.isUserLogged)
+    const login = useSelector((state: RootState) => state.login.isUserLogged)
 
     const dispatch = useDispatch()
 

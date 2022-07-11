@@ -1,9 +1,15 @@
+// Import components
 import { CartItemComponent } from "./CartItemComponent"
-import { CartItemWithStats } from "../../store/cartSlice";
+
+// Import useSelectorHook
 import { useSelector } from 'react-redux';
 
+// Import RootState and CartItemWithStats types
+import { RootState } from "../../store/Store";
+import { CartItemWithStats } from "../../store/cartSlice";
+
 export const Cart = () => {
-    const items = useSelector((state: any/* USE AN APPROPRIATE TYPE */) => state.cartSlice.items)
+    const items = useSelector((state: RootState) => state.cartSlice.items)
     return (
         <div className="flex flex-col justify-center items-center gap-5">
             <h2 className="text-4xl font-caveat">Your Shopping Cart</h2>
