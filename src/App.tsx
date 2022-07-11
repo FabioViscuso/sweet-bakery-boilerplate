@@ -1,13 +1,13 @@
 // React Router dependencies
 import { Route, Routes } from "react-router";
-import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
+import { Navbar } from "./components/navigation/Navbar";
+import { Footer } from "./components/navigation/Footer";
 
 // Components dependencies
-import { Dashboard } from "./pages/Dashboard";
+import { Shop } from "./pages/Shop";
 import { Homepage } from "./pages/Homepage";
 import { Page404 } from "./pages/Page404";
-import { Protected } from "./components/Protected";
+import { Protected } from "./components/navigation/Protected";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route index element={<Homepage />} />
         <Route path="/" element={<Homepage />} />
         <Route element={<Protected />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Shop />} />
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>

@@ -7,10 +7,14 @@ import { loggingMiddleware } from "./loggingMiddleware";
 
 // Slices
 import { userLoginStatus } from "./loginSlice";
+import { cartSlice } from "./cartSlice";
+import { toggleCartSlice } from "./toggleCartSlice"
 
 export const store = configureStore({
     reducer: {
-        login: userLoginStatus.reducer
+        login: userLoginStatus.reducer,
+        cartSlice: cartSlice.reducer,
+        toggleCart: toggleCartSlice.reducer,
     },
     middleware: [loggingMiddleware, ThunkMiddleware]
 })
