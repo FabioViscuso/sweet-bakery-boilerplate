@@ -2,7 +2,7 @@
 import { useCart } from '../../utils/useCart';
 
 export const ProductItem = (props: any) => {
-    const { id, title, price, description } = props;
+    const { title, price, description } = props;
 
     const { addItemHandler } = useCart(props);
 
