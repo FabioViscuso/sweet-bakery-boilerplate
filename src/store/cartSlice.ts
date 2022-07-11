@@ -13,7 +13,7 @@ export type CartItem = {
     price: number,
 }
 
-type CartStats = {
+export type CartStats = {
     quantity: number,
     totalAmount: number
 }

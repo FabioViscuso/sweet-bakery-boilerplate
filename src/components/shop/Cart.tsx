@@ -12,14 +12,12 @@ export const Cart = () => {
                     items.map((item: CartItemWithStats, index: number) =>
                         <CartItemComponent
                             key={index}
-                            item={{
-                                id: item.id,
-                                title: item.title,
-                                description: item.description,
-                                quantity: item.quantity,
-                                totalAmount: item.totalAmount,
-                                price: item.price,
-                            }}
+                            id={item.id}
+                            title={item.title}
+                            description={item.description}
+                            quantity={item.quantity}
+                            totalAmount={item.totalAmount}
+                            price={item.price}
                         />
                     )
                 }

@@ -14,7 +14,7 @@ export const Navbar = () => {
                 {!login && <button onClick={loginHandler} className="text-lg">Log In</button>}
                 {login && <button onClick={logoutHandler} className="text-lg">Log Out</button>}
                 {!login && <button className="text-lg">Sign Up</button>}
-                {login && <Link to='/dashboard'><button className="text-lg">Dashboard</button></Link>}
+                {login && <Link to='/shop'><button className="text-lg">Shop</button></Link>}
                 {login && <CartButton />}
             </div>
         </nav>

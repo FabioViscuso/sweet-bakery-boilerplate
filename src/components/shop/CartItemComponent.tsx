@@ -1,21 +1,13 @@
-import { useDispatch } from 'react-redux';
-import { CartItemWithStats, cartSliceActions } from '../../store/cartSlice';
+// import useCart custom hook
+import { useCart } from '../../utils/useCart';
 
-type Props = {
-    item: CartItemWithStats
-}
+// import types
+import { CartItemWithStats } from '../../store/cartSlice';
 
-export const CartItemComponent = (props: Props) => {
-    const { id, title, quantity, description, totalAmount, price } = props.item;
-    const dispatch = useDispatch()
+export const CartItemComponent = (props: CartItemWithStats) => {
+    const { title, quantity, totalAmount, price } = props;
 
-    const addItemHandler = () => {
-        dispatch(cartSliceActions.addToCart({ id, title, price, description }))
-    }
-
-    const removeItemHandler = () => {
-        dispatch(cartSliceActions.removeFromCart(id))
-    }
+    const { addItemHandler, removeItemHandler } = useCart(props)
 
     return (
         <li className='flex flex-row bg-slate-200'>
