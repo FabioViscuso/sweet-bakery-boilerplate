@@ -37,24 +37,29 @@ export const cartSlice = createSlice({
             // use .find() to retrieve, if existing, the cart item
             const existingItem = state.items.find((item) => item.id === newItem.id);
 
-            state.totalQuantity++;
             if (typeof existingItem === 'undefined') {
                 // if existingItem is undefined, take the newItem 
                 // and assign it 'quantity' and 'totalamount' props
                 const existingItem: CartItemWithStats = { ...newItem, quantity: 1, totalAmount: newItem.price };
                 state.items.push(existingItem);
             } else {
+                state.totalQuantity++;
                 existingItem.quantity++;
                 existingItem.totalAmount += newItem.price
             }
         },
         removeFromCart(state, action: { payload: CartItem["id"] }) {
+            // extract the ID
             const id = action.payload;
+
+            // remove funct is only available in places where "existingItem" exists
+            // so no need to check if the element is undefined
             const existingItem: any = state.items.find((item) => item.id === id);
-            state.totalQuantity--;
+
             if (existingItem.quantity === 1) {
                 state.items = state.items.filter((item) => item.id !== id)
             } else {
+                state.totalQuantity--;
                 existingItem.quantity--;
                 existingItem.totalAmount -= existingItem.price;
             }
