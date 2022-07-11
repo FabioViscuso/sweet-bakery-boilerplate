@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useLogin } from '../utils/useLogin';
 
 type Props = {
-    children?: JSX.Element
+    children?: JSX.Element | JSX.Element[],
 }
 
 export const Protected = (props: Props) => {
