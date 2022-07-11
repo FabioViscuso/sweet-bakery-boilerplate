@@ -9,7 +9,7 @@ import { Homepage } from "./pages/Homepage";
 import { Page404 } from "./pages/Page404";
 import { Protected } from "./components/Protected";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="h-screen max-h-screen flex flex-col justify-between">
       <Navbar />

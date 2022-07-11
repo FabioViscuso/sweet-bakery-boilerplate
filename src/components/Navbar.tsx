@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // useLogin custom hook
 import { useLogin } from '../utils/useLogin'
 
-export const Navbar: React.FC = () => {
+export const Navbar = () => {
     // recall the useLogin custom hook
     const { login, loginHandler, logoutHandler } = useLogin()
 

@@ -5,7 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import ThunkMiddleware from "redux-thunk";
 import { loggingMiddleware } from "./loggingMiddleware";
 
-// Other dependencies
+// Slices
 import { userLoginStatus } from "./loginSlice";
 
 export const store = configureStore({

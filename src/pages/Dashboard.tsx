@@ -1,4 +1,4 @@
-export const Dashboard: React.FC = () => {
+export const Dashboard = () => {
     return (<div>
         <h1>Dashboard!</h1>
     </div>)
