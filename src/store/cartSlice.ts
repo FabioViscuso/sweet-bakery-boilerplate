@@ -10,6 +10,7 @@ interface cartState {
 
 export type CartItem = {
     id: string,
+    imgUrl: string,
     title: string,
     description: string,
     price: number,

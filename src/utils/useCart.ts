@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { CartItemWithStats, cartSliceActions } from '../store/cartSlice';
 
 export const useCart = (item: CartItemWithStats) => {
-    const { id, title, quantity, description, totalAmount, price } = item;
+    const { id, title, imgUrl, quantity, description, totalAmount, price } = item;
     const dispatch = useDispatch()
 
     const removeItemHandler = () => {
@@ -10,12 +10,13 @@ export const useCart = (item: CartItemWithStats) => {
     }
 
     const addItemHandler = () => {
-        dispatch(cartSliceActions.addToCart({ id, title, price, description }))
+        dispatch(cartSliceActions.addToCart({ id, title, imgUrl, price, description }))
     }
 
     return {
         id,
         title,
+        imgUrl,
         quantity,
         description,
         totalAmount,

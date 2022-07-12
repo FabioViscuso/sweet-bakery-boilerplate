@@ -12,12 +12,12 @@ export const CartItemComponent = (props: CartItemWithStats) => {
     return (
         <li className='flex flex-row rounded-md bg-slate-200 font-caveat'>
             <header className='py-4 px-3'>
-                <h3>{title}</h3>
-                <div>
+                <h3 className='text-4xl'>{title}</h3>
+                <div className='text-2xl'>
                     ${totalAmount.toFixed(2)}{' '}
                     <span>(${price.toFixed(2)}/item)</span>
                 </div>
-                <div>
+                <div className='text-2xl'>
                     x <span>{quantity}</span>
                 </div>
             </header>

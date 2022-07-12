@@ -20,6 +20,7 @@ export const Cart = () => {
                             key={index}
                             id={item.id}
                             title={item.title}
+                            imgUrl={item.imgUrl}
                             description={item.description}
                             quantity={item.quantity}
                             totalAmount={item.totalAmount}
