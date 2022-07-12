@@ -2,7 +2,7 @@
 import { useCart } from '../../utils/useCart';
 
 // import types
-import { CartItemWithStats } from '../../store/cartSlice';
+import { CartItemWithStats } from '../../store/slices/cartSlice';
 
 export const CartItemComponent = (props: CartItemWithStats) => {
     const { title, quantity, totalAmount, price } = props;

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store';
-import { uiSliceActions } from '../../store/uiSlice';
+import { uiSliceActions } from '../../store/slices/uiSlice';
 
 export const CartButton = () => {
     const totalItems = useSelector((state: RootState) => state.cartSlice.totalQuantity)

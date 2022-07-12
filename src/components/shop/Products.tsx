@@ -1,5 +1,5 @@
 // type CartItem import
-import { CartItem } from '../../store/cartSlice';
+import { CartItem } from '../../store/slices/cartSlice';
 
 // components import
 import { ProductItem } from './ProductItem';

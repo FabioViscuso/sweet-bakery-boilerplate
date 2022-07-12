@@ -1,5 +1,5 @@
 // import useDispatch hook
-import { CartItem, CartItemWithStats } from '../../store/cartSlice';
+import { CartItem, CartItemWithStats } from '../../store/slices/cartSlice';
 import { useCart } from '../../utils/useCart';
 
 export const ProductItem = (props: CartItem) => {

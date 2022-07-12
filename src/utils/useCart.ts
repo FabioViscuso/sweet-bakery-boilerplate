@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { CartItemWithStats, cartSliceActions } from '../store/cartSlice';
+import { CartItemWithStats, cartSliceActions } from '../store/slices/cartSlice';
 
 export const useCart = (item: CartItemWithStats) => {
     const { id, title, imgUrl, quantity, description, totalAmount, price } = item;

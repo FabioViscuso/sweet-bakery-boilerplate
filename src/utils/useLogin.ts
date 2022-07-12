@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 // Login slice import
-import { loginActions } from "../store/loginSlice";
+import { loginActions } from "../store/slices/loginSlice";
 
 // RootState type import
 import { RootState } from "../store/Store";

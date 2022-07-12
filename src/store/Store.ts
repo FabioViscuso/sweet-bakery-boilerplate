@@ -6,9 +6,9 @@ import ThunkMiddleware from "redux-thunk";
 import { loggingMiddleware } from "./loggingMiddleware";
 
 // Slices
-import { userLoginStatus } from "./loginSlice";
-import { cartSlice } from "./cartSlice";
-import { uiSlice } from "./uiSlice"
+import { userLoginStatus } from "./slices/loginSlice";
+import { cartSlice } from "./slices/cartSlice";
+import { uiSlice } from "./slices/uiSlice"
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +16,7 @@ export const store = configureStore({
         cartSlice: cartSlice.reducer,
         uiSlice: uiSlice.reducer,
     },
-    middleware: [loggingMiddleware, ThunkMiddleware]
+    middleware: [/* loggingMiddleware, */ ThunkMiddleware]
 })
 
 export type RootState = ReturnType<typeof store.getState>;
