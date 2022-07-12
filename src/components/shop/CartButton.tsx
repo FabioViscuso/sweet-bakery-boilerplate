@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store';
-import { toggleCartSliceActions } from '../../store/toggleCartSlice';
+import { uiSliceActions } from '../../store/uiSlice';
 
 export const CartButton = () => {
     const totalItems = useSelector((state: RootState) => state.cartSlice.totalQuantity)
     const dispatch = useDispatch()
     const toggleCartHandler = () => {
-        dispatch(toggleCartSliceActions.toggle())
+        dispatch(uiSliceActions.toggleCart())
     }
 
     return (

@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { AnyAction, createSlice, ThunkAction, ThunkDispatch } from "@reduxjs/toolkit";
 
+// we need the uiSlice for the notification functionality here
+import { uiSliceActions } from "./uiSlice"
 interface cartState {
     items: CartItemWithStats[],
     totalQuantity: number,
@@ -66,5 +68,43 @@ export const cartSlice = createSlice({
         }
     },
 })
+
+export const sendCartData = (cartData: CartItemWithStats[]): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
+    return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+        // declaring the fetch function
+        const fetchDB = async (): Promise<void> => {
+            const response = await fetch('https://react-cart-demo-f429b-default-rtdb.europe-west1.firebasedatabase.app/cart.json',
+                { method: 'PUT', body: JSON.stringify(cartData) })
+
+            if (!response.ok) {
+                throw new Error('Data sync failed, refresh and retry')
+            }
+        }
+
+        try {
+            // call the fetch function and wait for results
+            await fetchDB();
+            // if the fetch response is "ok" the notification will be positive
+            dispatch(uiSliceActions.showNotification({
+                status: 'success',
+                title: 'Data sent',
+                message: 'Cart data has been successfully sent'
+            }))
+        } catch (err: any) {
+            // otherwise the notification will send a negative message
+            dispatch(uiSliceActions.showNotification({
+                status: 'error',
+                title: 'Data sending failed',
+                message: err.message
+            }))
+        } finally {
+            dispatch(uiSliceActions.showNotification({
+                status: 'pending',
+                title: 'Sending data',
+                message: 'Cart data is being sent to server'
+            }))
+        }
+    }
+}
 
 export const cartSliceActions = cartSlice.actions;
