@@ -39,7 +39,7 @@ export const cartSlice = createSlice({
             const existingItem = state.items.find((item) => item.id === newItem.id);
 
             if (typeof existingItem === 'undefined') {
-                // if existingItem is undefined, take the newItem 
+                // if existingItem is undefined, take the newItem
                 // and assign it 'quantity' and 'totalamount' props
                 const existingItem: CartItemWithStats = { ...newItem, quantity: 1, totalAmount: newItem.price };
                 state.items.push(existingItem);
@@ -67,6 +67,9 @@ export const cartSlice = createSlice({
         },
         replaceCart(state, action: any) {
             state.items = action.payload.items;
+            state.totalQuantity = state.items.reduce((acc, obj) => {
+                return acc + obj.quantity
+            }, 0)
         }
     },
 })

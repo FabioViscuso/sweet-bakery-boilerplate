@@ -22,7 +22,6 @@ export const Shop = () => {
 
     useEffect(() => {
         dispatch(retrieveCartData())
-        console.log(cart)
     }, [dispatch])
 
     useEffect(() => {
@@ -32,7 +31,6 @@ export const Shop = () => {
             return;
         }
         dispatch(sendCartData(cart))
-        console.log(cart)
     }, [cart, dispatch])
 
     return (

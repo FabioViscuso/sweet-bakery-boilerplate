@@ -17,14 +17,14 @@ export const retrieveCartData = () => {
             }
 
             const data = await response.json();
-            console.log(data)
+
             return data
         }
 
         try {
             const cartData = await fetchDB();
             dispatch(cartSliceActions.replaceCart({
-                items: cartData.items || []
+                items: cartData || []
             }))
         } catch (err: any) {
             // otherwise the notification will send a negative message
@@ -51,6 +51,12 @@ export const sendCartData = (cartData: CartItemWithStats[]): ThunkAction<Promise
         }
 
         try {
+            // dispatch pending notification
+            dispatch(uiSliceActions.showNotification({
+                status: 'pending',
+                title: 'Sending data',
+                message: 'Cart data is being sent to server'
+            }))
             // call the fetch function and wait for results
             await sendToDB();
             // if the fetch response is "ok" the notification will be positive
@@ -65,12 +71,6 @@ export const sendCartData = (cartData: CartItemWithStats[]): ThunkAction<Promise
                 status: 'error',
                 title: 'Data send failed',
                 message: err.message
-            }))
-        } finally {
-            dispatch(uiSliceActions.showNotification({
-                status: 'pending',
-                title: 'Sending data',
-                message: 'Cart data is being sent to server'
             }))
         }
     }
