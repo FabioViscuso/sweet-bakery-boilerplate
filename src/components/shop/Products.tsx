@@ -6,7 +6,7 @@ import { ProductItem } from './ProductItem';
 
 const DUMMY_PRODUCTS: CartItem[] = [
     { id: 'prod1', imgUrl: 'https://laboratorioespresso.it/wp-content/uploads/2018/12/tiramisu-grande.jpg', title: 'Tiramisù', price: 4.50, description: 'A classic' },
-    { id: 'prod2', imgUrl: 'https://i.pinimg.com/originals/ca/ea/08/caea086803a381300f5d5f90b8b74ba7.jpg', title: 'Fruit cupcake', price: 5.00, description: 'Fruity and tasty' },
+    { id: 'prod2', imgUrl: 'https://th.bing.com/th/id/OIP.QySrc7cuFNix5Ly4iLveqgHaHa?pid=ImgDet&rs=1', title: 'Fruit cupcake', price: 5.00, description: 'Fruity and tasty' },
     { id: 'prod3', imgUrl: 'https://bigoven-res.cloudinary.com/image/upload/t_recipe-1280/ultimatevanillacheesecake.jpg', title: 'Cheesecake', price: 9.99, description: 'With a variety of toppings' },
     { id: 'prod4', imgUrl: 'https://th.bing.com/th/id/OIP.syJbyeVdvs4kzYLEVV7x9QHaEx?pid=ImgDet&rs=1', title: 'Sacher', price: 12.40, description: 'A triumph of chocolate' },
     { id: 'prod5', imgUrl: 'https://i.pinimg.com/originals/02/00/cb/0200cb8509c58d95998b0ab929dfe7b8.jpg', title: 'Muffin', price: 6.00, description: 'A breakfast must-have' },
