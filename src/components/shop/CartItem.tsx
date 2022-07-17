@@ -10,7 +10,7 @@ export const CartItemComponent = (props: CartItemWithStats) => {
     const { addItemHandler, removeItemHandler } = useCart(props)
 
     return (
-        <li className='flex flex-row rounded-md bg-slate-200 font-caveat'>
+        <li className='flex flex-row justify-between rounded-md bg-slate-200 font-caveat'>
             <header className='py-4 px-3'>
                 <h3 className='text-4xl'>{title}</h3>
                 <div className='text-2xl'>

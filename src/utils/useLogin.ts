@@ -10,7 +10,7 @@ import { RootState } from "../store/Store";
 
 export const useLogin = () => {
 
-    const login = useSelector((state: RootState) => state.login.isUserLogged)
+    const isLogged = useSelector((state: RootState) => state.login.isUserLogged)
 
     const dispatch = useDispatch()
 
@@ -23,7 +23,7 @@ export const useLogin = () => {
     }
 
     return {
-        login,
+        isLogged,
         loginHandler,
         logoutHandler
     }

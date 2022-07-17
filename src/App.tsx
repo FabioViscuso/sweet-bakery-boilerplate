@@ -11,7 +11,7 @@ import { Protected } from "./components/navigation/Protected";
 
 const App = () => {
   return (
-    <div className="h-screen max-h-screen flex flex-col justify-between">
+    <>
       <Navbar />
       <Routes>
         <Route index element={<Homepage />} />
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   )
 }
 

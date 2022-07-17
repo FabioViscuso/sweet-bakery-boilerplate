@@ -1,4 +1,7 @@
+// Import Router utils
 import { Navigate, Outlet } from 'react-router-dom';
+
+// Import custom hooks
 import { useLogin } from '../../utils/useLogin';
 
 type Props = {
@@ -6,9 +9,9 @@ type Props = {
 }
 
 export const Protected = (props: Props) => {
-    const { login } = useLogin()
+    const { isLogged } = useLogin()
 
-    if (login === false) {
+    if (isLogged === false) {
         return (<Navigate to='/' replace />);
     }
 

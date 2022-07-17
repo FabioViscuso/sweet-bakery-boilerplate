@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { retrieveCartData, sendCartData } from "../store/actions/cartActions";
 
 // Components import
-import { Cart } from "../components/shop/Cart"
 import { Products } from "../components/shop/Products"
 
 // Types import
@@ -16,7 +15,6 @@ import { RootState } from "../store/Store";
 let isFirstRender = true
 
 export const Shop = () => {
-    const showCart = useSelector((state: { uiSlice: { cartIsVisible: boolean } }) => state.uiSlice.cartIsVisible)
     const dispatch = useDispatch<any>()
     const cart = useSelector((state: RootState) => state.cartSlice.items)
 
@@ -34,8 +32,7 @@ export const Shop = () => {
     }, [cart, dispatch])
 
     return (
-        <div className="flex flex-col justify-start items-center overflow-x-hidden overflow-y-auto py-4">
-            {showCart && <Cart />}
+        <div className="flex flex-col justify-start items-center overflow-x-hidden overflow-y-auto py-4 pt-8">
             <Products />
         </div>
     )

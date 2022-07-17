@@ -14,9 +14,9 @@ export const Cart = () => {
     console.log(items)
 
     return (
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div className="absolute -right-2 top-16 flex flex-col justify-between items-center w-screen md:w-max gap-5 py-5 px-2 rounded-md bg-[#e2c3c8] border-stone-600 border-2">
             <h2 className="text-4xl font-caveat">Your Shopping Cart</h2>
-            <ul className="flex flex-row gap-5">
+            <ul className="flex flex-col gap-5 w-full">
                 {
                     items.map((item: CartItemWithStats, index: number) =>
                         <CartItemComponent
@@ -32,6 +32,8 @@ export const Cart = () => {
                     )
                 }
             </ul>
+            <button className='bg-pink-200 rounded-md w-full p-2 self-stretch'>Proceed to checkout</button>
+
         </div>
     )
 }

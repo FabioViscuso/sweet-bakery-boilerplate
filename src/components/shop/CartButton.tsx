@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/Store';
 import { uiSliceActions } from '../../store/slices/uiSlice';
+import { Cart } from './Cart';
 
 export const CartButton = () => {
     const totalItems = useSelector((state: RootState) => state.cartSlice.totalQuantity)
@@ -9,10 +10,14 @@ export const CartButton = () => {
         dispatch(uiSliceActions.toggleCart())
     }
 
+    const showCart = useSelector((state: { uiSlice: { cartIsVisible: boolean } }) => state.uiSlice.cartIsVisible)
+
+
     return (
-        <button className='flex flex-row gap-4 items-center font-indieflower text-2xl' onClick={toggleCartHandler}>
+        <button className='relative flex flex-row gap-4 items-center font-indieflower text-2xl' onClick={toggleCartHandler}>
             <span className=''>My Cart</span>
             <span className='bg-pink-100 text-gray-900 w-10 h-10 rounded-full leading-10'>{totalItems}</span>
+            {showCart && <Cart />}
         </button>
     );
 };
