@@ -24,7 +24,7 @@ export const signupNewUser = (username: string, password: string): any/* ThunkAc
                 }))
                 throw new Error('Existing user')
             } else {
-                const usersToUpload: any = [...data, { username: username, password: password }]
+                const usersToUpload: { username: string, password: string }[] = [...data, { username: username, password: password }]
 
                 fetch('https://react-cart-demo-f429b-default-rtdb.europe-west1.firebasedatabase.app/users.json', {
                     method: 'PUT',
