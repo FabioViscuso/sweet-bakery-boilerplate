@@ -2,8 +2,9 @@
 import { useModals } from "../../utils/useModals"
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/actions/loginActions";
+import { createPortal } from "react-dom";
 
-export const Login = () => {
+const Login = () => {
 
     const { closeLoginHandler } = useModals()
     const dispatch = useDispatch()
@@ -18,7 +19,7 @@ export const Login = () => {
 
 
     return (
-        <div className="py-12 bg-gray-700 bg-opacity-50 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0" id="loginModal">
+        <div className="py-12 bg-gray-700 bg-opacity-50 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0">
             <div role="alert" className="container mx-auto w-11/12 md:w-2/3 max-w-lg">
                 <form onSubmit={loginHandler} className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                     <h1 className="text-gray-800 text-6xl font-caveat tracking-normal leading-tight mb-4">Log In</h1>
@@ -50,5 +51,13 @@ export const Login = () => {
                 </form>
             </div>
         </div>
+    )
+}
+
+export const LoginModal = () => {
+    return (
+        <>
+            {createPortal(<Login />, document.getElementById('loginModal') as HTMLElement)}
+        </>
     )
 }

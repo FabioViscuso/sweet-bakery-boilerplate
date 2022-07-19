@@ -6,8 +6,8 @@ import { useModals } from "../../utils/useModals";
 import { CartButton } from "../shop/CartButton";
 
 // Import modals
-import { Login } from "../modals/Login";
-import { SignUp } from "../modals/SignUp";
+import { LoginModal } from "../modals/Login";
+import { SignUpModal } from "../modals/SignUp";
 
 export const Navbar = () => {
     // recall the useLogin custom hook
@@ -24,8 +24,8 @@ export const Navbar = () => {
                 {isLogged && <Link to='/shop'><button className="font-indieflower text-2xl">Shop</button></Link>}
                 {isLogged && <CartButton />}
             </div>
-            {showLogin && <Login />}
-            {showSignup && <SignUp />}
+            {showLogin && <LoginModal />}
+            {showSignup && <SignUpModal />}
         </nav>
     )
 }
