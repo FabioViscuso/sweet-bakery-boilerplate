@@ -28,7 +28,7 @@ export const retrieveCartData = () => {
             }))
         } catch (err: any) {
             // otherwise the notification will send a negative message
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
                 status: 'error',
                 title: 'Data retrieve failed',
                 message: err.message
@@ -52,7 +52,7 @@ export const sendCartData = (cartData: CartItemWithStats[]): ThunkAction<Promise
 
         try {
             // dispatch pending notification
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
                 status: 'pending',
                 title: 'Sending data',
                 message: 'Cart data is being sent to server'
@@ -60,14 +60,14 @@ export const sendCartData = (cartData: CartItemWithStats[]): ThunkAction<Promise
             // call the fetch function and wait for results
             await sendToDB();
             // if the fetch response is "ok" the notification will be positive
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
                 status: 'success',
                 title: 'Data sent',
                 message: 'Data sent successfully'
             }))
         } catch (err: any) {
             // otherwise the notification will send a negative message
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
                 status: 'error',
                 title: 'Data send failed',
                 message: err.message

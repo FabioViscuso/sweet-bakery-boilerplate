@@ -3,20 +3,27 @@ import { createSlice } from "@reduxjs/toolkit";
 export const uiSlice = createSlice({
     name: 'uiSlice',
     initialState: {
-        cartIsVisible: true,
+        cartIsVisible: false,
         loginModalIsVisible: false,
         signupModalIsVisible: false,
-        notification: {},
+        notification: {
+            visible: false,
+            status: null,
+            title: null,
+            message: null
+        },
     },
     reducers: {
         toggleCart(state) { state.cartIsVisible = !state.cartIsVisible },
-        showNotification(state, action) {
+        pushNotificationState(state, action) {
             state.notification = {
+                visible: true,
                 status: action.payload.status,
                 title: action.payload.title,
                 message: action.payload.message
             }
         },
+        hideNotification(state) { state.notification = { ...state.notification, visible: false } },
         showLoginModal(state) { state.loginModalIsVisible = true },
         hideLoginModal(state) { state.loginModalIsVisible = false },
         showSignupModal(state) { state.signupModalIsVisible = true },

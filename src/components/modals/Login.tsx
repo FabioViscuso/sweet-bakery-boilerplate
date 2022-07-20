@@ -15,6 +15,7 @@ const Login = () => {
         const password: string = event.target.elements.loginpassword.value
         console.log(username, password)
         dispatch(loginUser(username, password))
+        closeLoginHandler()
     }
 
 

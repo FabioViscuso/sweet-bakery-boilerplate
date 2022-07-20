@@ -19,6 +19,7 @@ const SignUp = () => {
         const password: string = event.target.elements.signuppassword.value
         console.log(username, password)
         dispatch(signupNewUser(username, password))
+        closeSignupHandler()
     }
 
     return (

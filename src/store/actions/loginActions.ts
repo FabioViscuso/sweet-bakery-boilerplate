@@ -4,7 +4,7 @@ import { uiSliceActions } from "../slices/uiSlice"
 import { loginActions } from "../slices/loginSlice"
 
 
-export const signupNewUser = (username: string, password: string): any/* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
+export const signupNewUser = (username: string, password: string): any /* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         const fetchDB = async () => {
             const response = await fetch('https://react-cart-demo-f429b-default-rtdb.europe-west1.firebasedatabase.app/users.json')
@@ -17,7 +17,8 @@ export const signupNewUser = (username: string, password: string): any/* ThunkAc
             console.log('userdata', ...data)
 
             if (data.some((item: { username: string }) => item.username === username)) {
-                dispatch(uiSliceActions.showNotification({
+                dispatch(uiSliceActions.pushNotificationState({
+                    visible: true,
                     status: 'error',
                     title: `User ${data.username} already exists`,
                     message: 'Please enter a different username'
@@ -26,10 +27,17 @@ export const signupNewUser = (username: string, password: string): any/* ThunkAc
             } else {
                 const usersToUpload: { username: string, password: string }[] = [...data, { username: username, password: password }]
 
-                fetch('https://react-cart-demo-f429b-default-rtdb.europe-west1.firebasedatabase.app/users.json', {
+                await fetch('https://react-cart-demo-f429b-default-rtdb.europe-west1.firebasedatabase.app/users.json', {
                     method: 'PUT',
                     body: JSON.stringify(usersToUpload),
                 })
+
+                dispatch(uiSliceActions.pushNotificationState({
+                    visible: true,
+                    status: 'success',
+                    title: `User ${data.username} registered`,
+                    message: 'Please log in to start shopping!'
+                }))
             }
         }
         try {
@@ -37,7 +45,8 @@ export const signupNewUser = (username: string, password: string): any/* ThunkAc
 
         } catch (err: any) {
             // otherwise the notification will send a negative message
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
+                visible: true,
                 status: 'error',
                 title: 'Data sending failed',
                 message: err.message
@@ -56,16 +65,23 @@ export const loginUser = (username: string, password: string): any /* ThunkActio
                 throw new Error('Fetching data failed')
             }
 
-            const data = await response.json()
+            const data: [] = await response.json()
 
             if (!data.some((item: { username: string, password: string }) => (item.username === username && item.password === password))) {
-                dispatch(uiSliceActions.showNotification({
+                dispatch(uiSliceActions.pushNotificationState({
+                    visible: true,
                     status: 'error',
                     title: `Invalid credentials`,
                     message: 'Please check again'
                 }))
-                throw new Error('Invalid credentials')
+                throw new Error('Invalid credentials, try again')
             } else {
+                dispatch(uiSliceActions.pushNotificationState({
+                    visible: true,
+                    status: 'success',
+                    title: `Hello!`,
+                    message: 'You logged in'
+                }))
                 dispatch(loginActions.login())
             }
         }
@@ -73,9 +89,10 @@ export const loginUser = (username: string, password: string): any /* ThunkActio
             await fetchDB()
         } catch (err: any) {
             // otherwise the notification will send a negative message
-            dispatch(uiSliceActions.showNotification({
+            dispatch(uiSliceActions.pushNotificationState({
+                visible: true,
                 status: 'error',
-                title: 'Data retrieve failed',
+                title: 'Ops!',
                 message: err.message
             }))
         }
