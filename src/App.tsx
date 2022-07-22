@@ -23,6 +23,7 @@ const App = () => {
   useEffect(() => {
     const id = setTimeout(() => {
       dispatch(uiSliceActions.hideNotification())
+      dispatch(uiSliceActions.resetNotificationState())
     }, 3000);
 
     return () => {

@@ -8,9 +8,9 @@ export const uiSlice = createSlice({
         signupModalIsVisible: false,
         notification: {
             visible: false,
-            status: null,
-            title: null,
-            message: null
+            status: '',
+            title: '',
+            message: ''
         },
     },
     reducers: {
@@ -21,6 +21,14 @@ export const uiSlice = createSlice({
                 status: action.payload.status,
                 title: action.payload.title,
                 message: action.payload.message
+            }
+        },
+        resetNotificationState(state) {
+            state.notification = {
+                visible: false,
+                status: '',
+                title: '',
+                message: ''
             }
         },
         hideNotification(state) { state.notification = { ...state.notification, visible: false } },

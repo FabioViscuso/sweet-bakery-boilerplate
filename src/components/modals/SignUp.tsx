@@ -3,24 +3,19 @@ import { createPortal } from "react-dom";
 
 // Import hooks
 import { useModals } from "../../utils/useModals"
-
-// Import custom hooks
-import { useDispatch } from "react-redux";
-import { signupNewUser } from "../../store/actions/loginActions";
+import { useLogin } from "../../utils/useLogin";
+import { useEffect } from "react";
 
 const SignUp = () => {
 
     const { closeSignupHandler } = useModals();
-    const dispatch = useDispatch()
+    const { signUpHandler, status } = useLogin()
 
-    const signUpHandler = (event: any) => {
-        event.preventDefault()
-        const username: string = event.target.elements.signupusername.value
-        const password: string = event.target.elements.signuppassword.value
-        console.log(username, password)
-        dispatch(signupNewUser(username, password))
-        closeSignupHandler()
-    }
+    useEffect(() => {
+        if (status === 'success') {
+            closeSignupHandler()
+        }
+    }, [status])
 
     return (
         <div className="py-12 bg-gray-700 bg-opacity-50 transition duration-150 ease-in-out absolute z-10 top-0 right-0 bottom-0 left-0">
@@ -30,7 +25,7 @@ const SignUp = () => {
 
                     {/* USERNAME FIELD */}
                     <label htmlFor="signupusername" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Username</label>
-                    <input id="signupusername" name="signupusername" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
+                    <input id="signupusername" name="signupusername" autoFocus className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
 
                     {/* PASSWORD FIELD */}
                     <label htmlFor="signuppassword" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Password</label>

@@ -1,23 +1,21 @@
+// Import createPortal
+import { createPortal } from "react-dom"
+    ;
 // Import hooks
 import { useModals } from "../../utils/useModals"
-import { useDispatch } from "react-redux";
-import { loginUser } from "../../store/actions/loginActions";
-import { createPortal } from "react-dom";
+import { useLogin } from "../../utils/useLogin";
+import { useEffect } from "react";
 
 const Login = () => {
 
     const { closeLoginHandler } = useModals()
-    const dispatch = useDispatch()
+    const { loginHandler, status } = useLogin()
 
-    const loginHandler = (event: any) => {
-        event.preventDefault()
-        const username: string = event.target.elements.loginusername.value
-        const password: string = event.target.elements.loginpassword.value
-        console.log(username, password)
-        dispatch(loginUser(username, password))
-        closeLoginHandler()
-    }
-
+    useEffect(() => {
+        if (status === 'success') {
+            closeLoginHandler()
+        }
+    }, [status])
 
     return (
         <div className="py-12 bg-gray-700 bg-opacity-50 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0">
@@ -27,7 +25,7 @@ const Login = () => {
 
                     {/* USERNAME FIELD */}
                     <label htmlFor="loginusername" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Username</label>
-                    <input id="loginusername" name="loginusername" className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
+                    <input id="loginusername" name="loginusername" autoFocus className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
 
                     {/* PASSWORD FIELD */}
                     <label htmlFor="loginpassword" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Password</label>

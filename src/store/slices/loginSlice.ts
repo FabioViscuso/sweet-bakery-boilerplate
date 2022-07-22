@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface loginState {
-    isUserLogged: boolean
+    isUserLogged: boolean,
+    currentUser: {
+        username: string
+    }
 }
 
-const initialLoginState : loginState = {
-    isUserLogged: false
+const initialLoginState: loginState = {
+    isUserLogged: false,
+    currentUser: {
+        username: ''
+    }
 }
 
 export const userLoginStatus = createSlice({

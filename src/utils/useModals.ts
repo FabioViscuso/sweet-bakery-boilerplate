@@ -16,16 +16,13 @@ export const useModals = () => {
     const openLoginHandler = () => {
         dispatch(uiSliceActions.showLoginModal())
     }
-
-    const openSignupHandler = () => {
-        dispatch(uiSliceActions.showSignupModal())
-    }
-
-
     const closeLoginHandler = () => {
         dispatch(uiSliceActions.hideLoginModal())
     }
 
+    const openSignupHandler = () => {
+        dispatch(uiSliceActions.showSignupModal())
+    }
     const closeSignupHandler = () => {
         dispatch(uiSliceActions.hideSignupModal())
     }
