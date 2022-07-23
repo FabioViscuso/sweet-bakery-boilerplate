@@ -9,13 +9,13 @@ import { useEffect } from "react";
 const Login = () => {
 
     const { closeLoginHandler } = useModals()
-    const { loginHandler, status } = useLogin()
+    const { loginHandler, status, usernameInput, passwordInput } = useLogin()
 
     useEffect(() => {
         if (status === 'success') {
             closeLoginHandler()
         }
-    }, [status])
+    }, [status, closeLoginHandler])
 
     return (
         <div className="py-12 bg-gray-700 bg-opacity-50 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0">
@@ -25,12 +25,12 @@ const Login = () => {
 
                     {/* USERNAME FIELD */}
                     <label htmlFor="loginusername" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Username</label>
-                    <input id="loginusername" name="loginusername" autoFocus className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
+                    <input id="loginusername" name="loginusername" autoFocus ref={usernameInput} className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
 
                     {/* PASSWORD FIELD */}
                     <label htmlFor="loginpassword" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Password</label>
                     <div className="relative mb-5 mt-2">
-                        <input type='password' id="loginpassword" name="loginpassword" className="text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
+                        <input type='password' id="loginpassword" name="loginpassword" ref={passwordInput} className="text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
                     </div>
 
                     {/* BUTTONS */}

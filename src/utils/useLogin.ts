@@ -16,19 +16,23 @@ import { RootState } from "../store/Store";
 
 // Custom imports
 import { loginUser, signupNewUser } from "../store/actions/loginActions";
+import React, { useRef } from "react";
 
 export const useLogin = () => {
 
     const dispatch = useDispatch()
 
+    const usernameInput = useRef<HTMLInputElement>(null)
+    const passwordInput = useRef<HTMLInputElement>(null)
+
     const isLogged = useSelector((state: RootState) => state.login.isUserLogged)
 
     const status = useSelector((state: RootState) => state.uiSlice.notification.status)
 
-    const loginHandler = (event: any) => {
+    const loginHandler = (event: React.FormEvent) => {
         event.preventDefault()
-        const username: string = event.target.elements.loginusername.value
-        const password: string = event.target.elements.loginpassword.value
+        const username = usernameInput.current?.value
+        const password = passwordInput.current?.value
         if (typeof username === 'string' && typeof password === 'string') {
             dispatch(loginUser(username, password))
         }
@@ -38,10 +42,10 @@ export const useLogin = () => {
         dispatch(loginActions.logout())
     }
 
-    const signUpHandler = async (event: any) => {
+    const signUpHandler = async (event: React.FormEvent) => {
         event.preventDefault()
-        const username: string = event.target.elements.signupusername.value
-        const password: string = event.target.elements.signuppassword.value
+        const username = usernameInput.current?.value
+        const password = passwordInput.current?.value
         if (typeof username === 'string' && typeof password === 'string') {
             await dispatch(signupNewUser(username, password))
         }
@@ -50,6 +54,8 @@ export const useLogin = () => {
     return {
         isLogged,
         status,
+        usernameInput,
+        passwordInput,
         loginHandler,
         logoutHandler,
         signUpHandler
