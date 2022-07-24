@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 // Middleware
 import ThunkMiddleware from "redux-thunk";
-import { loggingMiddleware } from "./middleware/loggingMiddleware";
+/* import { loggingMiddleware } from "./middleware/loggingMiddleware"; */
 
 // Slices
 import { userLoginStatus } from "./slices/loginSlice";
