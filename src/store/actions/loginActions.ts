@@ -1,3 +1,12 @@
+/*
+    This file includes the login and signup functions,
+    each managing:
+    - fetching api endpoints
+    - state updates
+    - persistent logging
+    - notification triggers
+*/
+
 // Types
 import { ThunkDispatch } from "redux-thunk"
 import { /* ThunkAction, */ AnyAction } from "@reduxjs/toolkit"
@@ -31,8 +40,8 @@ export const signupNewUser = (email: string, password: string): any /* ThunkActi
                     message: 'Please log in to start shopping!'
                 }))
             }
-
         }
+
         try {
             await signupFunc()
         } catch (err: any) {
@@ -78,8 +87,6 @@ export const loginUser = (email: string, password: string): any /* ThunkAction<P
                 // store the data in localStorage for persistent login feat
                 localStorage.setItem('auth', JSON.stringify({ email: data.email, token: data.idToken }))
             }
-
-
         }
 
         // function call

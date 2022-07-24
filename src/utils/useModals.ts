@@ -1,3 +1,7 @@
+/*
+    This hook exposes state and functions regarding the modals
+*/
+
 // Import hooks
 import { useDispatch, useSelector } from "react-redux";
 

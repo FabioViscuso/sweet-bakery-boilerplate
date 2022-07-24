@@ -33,7 +33,7 @@ export const useLogin = () => {
     // this is actually not from login slice, might be moved in the future
     const status = useSelector((state: RootState) => state.uiSlice.notification.status)
 
-    // checks user data and
+    // checks user data and dispatches the signup action
     const signUpHandler = (event: React.FormEvent) => {
         event.preventDefault()
         const email = emailInput.current?.value
@@ -43,6 +43,7 @@ export const useLogin = () => {
         }
     }
 
+    // checks user data and dispatches the login action
     const loginHandler = (event: React.FormEvent) => {
         event.preventDefault()
         const email = emailInput.current?.value
@@ -52,6 +53,7 @@ export const useLogin = () => {
         }
     }
 
+    // dispatches the logout action
     const logoutHandler = () => {
         dispatch(loginActions.logout())
         localStorage.removeItem('auth')

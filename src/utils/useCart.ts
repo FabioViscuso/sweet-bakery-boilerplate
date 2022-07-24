@@ -1,3 +1,7 @@
+/*
+    This file exports functions and data regarding the cart slice
+*/
+
 import { useDispatch } from 'react-redux';
 import { CartItemWithStats, cartSliceActions } from '../store/slices/cartSlice';
 
