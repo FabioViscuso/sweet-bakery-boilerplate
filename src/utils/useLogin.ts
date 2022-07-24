@@ -22,19 +22,21 @@ export const useLogin = () => {
 
     const dispatch = useDispatch()
 
-    const usernameInput = useRef<HTMLInputElement>(null)
+    const emailInput = useRef<HTMLInputElement>(null)
     const passwordInput = useRef<HTMLInputElement>(null)
 
     const isLogged = useSelector((state: RootState) => state.login.isUserLogged)
+
+    const username = useSelector((state: RootState) => state.login.currentUser.email)
 
     const status = useSelector((state: RootState) => state.uiSlice.notification.status)
 
     const loginHandler = (event: React.FormEvent) => {
         event.preventDefault()
-        const username = usernameInput.current?.value
+        const email = emailInput.current?.value
         const password = passwordInput.current?.value
-        if (typeof username === 'string' && typeof password === 'string') {
-            dispatch(loginUser(username, password))
+        if (typeof email === 'string' && typeof password === 'string') {
+            dispatch(loginUser(email, password))
         }
     }
 
@@ -44,17 +46,18 @@ export const useLogin = () => {
 
     const signUpHandler = async (event: React.FormEvent) => {
         event.preventDefault()
-        const username = usernameInput.current?.value
+        const email = emailInput.current?.value
         const password = passwordInput.current?.value
-        if (typeof username === 'string' && typeof password === 'string') {
-            await dispatch(signupNewUser(username, password))
+        if (typeof email === 'string' && typeof password === 'string') {
+            await dispatch(signupNewUser(email, password))
         }
     }
 
     return {
         isLogged,
+        username,
         status,
-        usernameInput,
+        emailInput,
         passwordInput,
         loginHandler,
         logoutHandler,
