@@ -12,6 +12,7 @@ import { Homepage } from "./pages/Homepage";
 import { Page404 } from "./pages/Page404";
 import { Protected } from "./components/navigation/Protected";
 import { NotificationModal } from "./components/UI/NotificationModal";
+import { User } from "./pages/User";
 //Types
 import { RootState } from "./store/Store";
 
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/" element={<Homepage />} />
         <Route element={<Protected />}>
           <Route path="/shop" element={<Shop />} />
+          <Route path="/user" element={<User />} />
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>

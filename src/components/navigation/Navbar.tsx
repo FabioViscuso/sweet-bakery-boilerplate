@@ -22,6 +22,7 @@ export const Navbar = () => {
                 {isLogged && <button onClick={logoutHandler} className="font-indieflower text-2xl">Log Out</button>}
                 {!isLogged && <button onClick={openSignupHandler} className="font-indieflower text-2xl">Sign Up</button>}
                 {isLogged && <Link to='/shop'><button className="font-indieflower text-2xl">Shop</button></Link>}
+                {isLogged && <Link to='user'><button className="font-indieflower text-2xl">Account</button></Link>}
                 {isLogged && <CartButton />}
             </div>
             {showLogin && <LoginModal />}
