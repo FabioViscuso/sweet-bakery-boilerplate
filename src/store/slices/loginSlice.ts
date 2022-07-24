@@ -3,14 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface loginState {
     isUserLogged: boolean,
     currentUser: {
-        username: string
+        email: string,
+        token: string
     }
 }
 
 const initialLoginState: loginState = {
     isUserLogged: false,
     currentUser: {
-        username: ''
+        email: '',
+        token: ''
     }
 }
 
@@ -18,8 +20,20 @@ export const userLoginStatus = createSlice({
     name: 'userLoginStatus',
     initialState: initialLoginState,
     reducers: {
-        login(state) { state.isUserLogged = true },
-        logout(state) { state.isUserLogged = false }
+        login(state, action) {
+            state.isUserLogged = true;
+            state.currentUser = {
+                email: action.payload.email,
+                token: action.payload.token
+            };
+        },
+        logout(state) {
+            state.isUserLogged = false;
+            state.currentUser = {
+                email: '',
+                token: ''
+            }
+        }
     }
 })
 

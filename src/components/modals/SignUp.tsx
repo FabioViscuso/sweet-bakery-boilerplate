@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const SignUp = () => {
 
     const { closeSignupHandler } = useModals();
-    const { signUpHandler, status, usernameInput, passwordInput } = useLogin()
+    const { signUpHandler, status, emailInput, passwordInput } = useLogin()
 
     useEffect(() => {
         if (status === 'success') {
@@ -23,9 +23,9 @@ const SignUp = () => {
                 <form onSubmit={signUpHandler} className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                     <h1 className="text-gray-800 text-6xl font-caveat tracking-normal leading-tight mb-4">Register a new account</h1>
 
-                    {/* USERNAME FIELD */}
-                    <label htmlFor="signupusername" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Username</label>
-                    <input id="signupusername" name="signupusername" autoFocus ref={usernameInput} className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
+                    {/* EMAIL FIELD */}
+                    <label htmlFor="signupemail" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">email</label>
+                    <input type="email" id="signupemail" name="signupemail" autoFocus ref={emailInput} className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
 
                     {/* PASSWORD FIELD */}
                     <label htmlFor="signuppassword" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Password</label>
