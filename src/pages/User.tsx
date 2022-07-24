@@ -10,7 +10,7 @@ export const User = () => {
         event.preventDefault()
         const newPassword = passwordInput.current!.value
         if (newPassword.length >= 6) {
-            fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBOQgPotFQHiJjP6qnGw9ODAGf2dVF5Z74',
+            fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${process.env.REACT_APP_FIREBASE_API}`,
                 {
                     method: 'POST',
                     headers: {

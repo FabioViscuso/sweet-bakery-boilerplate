@@ -10,7 +10,7 @@ export const signupNewUser = (email: string, password: string): any /* ThunkActi
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const signupFunc = async () => {
-            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBOQgPotFQHiJjP6qnGw9ODAGf2dVF5Z74',
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API}`,
                 {
                     method: 'POST',
                     headers: {
@@ -52,7 +52,7 @@ export const loginUser = (email: string, password: string): any /* ThunkAction<P
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const loginFunc = async () => {
-            const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBOQgPotFQHiJjP6qnGw9ODAGf2dVF5Z74',
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API}`,
                 {
                     method: 'POST',
                     headers: {
