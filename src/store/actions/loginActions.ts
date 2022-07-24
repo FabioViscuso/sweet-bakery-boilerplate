@@ -75,6 +75,8 @@ export const loginUser = (email: string, password: string): any /* ThunkAction<P
                 }))
                 // set the login state to true
                 dispatch(loginActions.login({ email: data.email, token: data.idToken }))
+                // store the data in localStorage for persistent login feat
+                localStorage.setItem('auth', JSON.stringify({ email: data.email, token: data.idToken }))
             }
 
 

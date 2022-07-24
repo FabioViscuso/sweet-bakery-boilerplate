@@ -54,6 +54,7 @@ export const useLogin = () => {
 
     const logoutHandler = () => {
         dispatch(loginActions.logout())
+        localStorage.removeItem('auth')
     }
 
     return {
