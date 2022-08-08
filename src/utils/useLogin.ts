@@ -23,6 +23,7 @@ export const useLogin = () => {
     const dispatch = useDispatch()
 
     // refs to attach to any username+password form
+    const usernameInput = useRef<HTMLInputElement>(null)
     const emailInput = useRef<HTMLInputElement>(null)
     const passwordInput = useRef<HTMLInputElement>(null)
 
@@ -39,7 +40,7 @@ export const useLogin = () => {
         const email = emailInput.current?.value
         const password = passwordInput.current?.value
         if (typeof email === 'string' && typeof password === 'string' && password.length >= 6) {
-            dispatch(signupNewUser(email, password))
+            dispatch(signupNewUser(username, email, password))
         }
     }
 
@@ -64,6 +65,7 @@ export const useLogin = () => {
         username,
         token,
         status,
+        usernameInput,
         emailInput,
         passwordInput,
         loginHandler,

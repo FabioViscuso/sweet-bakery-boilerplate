@@ -15,17 +15,17 @@ import { uiSliceActions } from "../slices/uiSlice"
 import { loginActions } from "../slices/loginSlice"
 
 // Sign Up logic
-export const signupNewUser = (email: string, password: string): any /* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
+export const signupNewUser = (username: string, email: string, password: string): any /* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const signupFunc = async () => {
-            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API}`,
+            const response = await fetch(`http://localhost:8080/api/auth/signup`,
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email: email, password: password, returnSecureToken: true })
+                    body: JSON.stringify({ username: username, email: email, password: password })
                 })
 
             // in case of networking issue, throw an error
@@ -57,17 +57,17 @@ export const signupNewUser = (email: string, password: string): any /* ThunkActi
 }
 
 // Login logic
-export const loginUser = (email: string, password: string): any /* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
+export const loginUser = (username: string, password: string): any /* ThunkAction<Promise<void>, {}, {}, AnyAction> */ => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const loginFunc = async () => {
-            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API}`,
+            const response = await fetch(`http://localhost:8080/api/auth/signin`,
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email: email, password: password, returnSecureToken: true })
+                    body: JSON.stringify({ username: username, password: password })
                 })
 
             // in case of networking issue, throw an error
