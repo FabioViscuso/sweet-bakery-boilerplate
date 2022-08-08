@@ -25,9 +25,10 @@ export const signupNewUser = (username: string, email: string, password: string)
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ username: username, email: email, password: password })
+                    body: JSON.stringify({ username: username, email: email, password: password, roles: ['user'] })
                 })
 
+            console.log(username, password, email)
             // in case of networking issue, throw an error
             if (!response.ok) {
                 throw new Error('Signup failed, please try again')
@@ -85,7 +86,7 @@ export const loginUser = (username: string, password: string): any /* ThunkActio
                 // set the login state to true
                 dispatch(loginActions.login({ email: data.email, token: data.idToken }))
                 // store the data in localStorage for persistent login feat
-                localStorage.setItem('auth', JSON.stringify({ email: data.email, token: data.idToken }))
+                /* localStorage.setItem('auth', JSON.stringify({ email: data.email, token: data.idToken })) */
             }
         }
 

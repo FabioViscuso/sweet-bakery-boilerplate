@@ -37,9 +37,10 @@ export const useLogin = () => {
     // checks user data and dispatches the signup action
     const signUpHandler = (event: React.FormEvent) => {
         event.preventDefault()
+        const username = usernameInput.current?.value
         const email = emailInput.current?.value
         const password = passwordInput.current?.value
-        if (typeof email === 'string' && typeof password === 'string' && password.length >= 6) {
+        if (typeof username === 'string' && typeof email === 'string' && typeof password === 'string' && password.length >= 6) {
             dispatch(signupNewUser(username, email, password))
         }
     }
@@ -47,10 +48,10 @@ export const useLogin = () => {
     // checks user data and dispatches the login action
     const loginHandler = (event: React.FormEvent) => {
         event.preventDefault()
-        const email = emailInput.current?.value
+        const username = usernameInput.current?.value
         const password = passwordInput.current?.value
-        if (typeof email === 'string' && typeof password === 'string') {
-            dispatch(loginUser(email, password))
+        if (typeof username === 'string' && typeof password === 'string') {
+            dispatch(loginUser(username, password))
         }
     }
 
