@@ -29,7 +29,7 @@ export const useLogin = () => {
 
     // elements taken from login slice
     const isLogged = useSelector((state: RootState) => state.login.isUserLogged)
-    const username = useSelector((state: RootState) => state.login.currentUser.email)
+    const username = useSelector((state: RootState) => state.login.currentUser.username)
     const token = useSelector((state: RootState) => state.login.currentUser.token)
     // this is actually not from login slice, might be moved in the future
     const status = useSelector((state: RootState) => state.uiSlice.notification.status)
