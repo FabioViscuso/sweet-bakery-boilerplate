@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const SignUp = () => {
 
     const { closeSignupHandler } = useModals();
-    const { signUpHandler, status, emailInput, passwordInput } = useLogin()
+    const { signUpHandler, status, usernameInput, emailInput, passwordInput } = useLogin()
 
     useEffect(() => {
         if (status === 'success') {
@@ -22,6 +22,10 @@ const SignUp = () => {
             <div role="alert" className="container mx-auto w-11/12 md:w-2/3 max-w-lg">
                 <form onSubmit={signUpHandler} className="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                     <h1 className="text-gray-800 text-6xl font-caveat tracking-normal leading-tight mb-4">Register a new account</h1>
+
+                    {/* USERNAME FIELD */}
+                    <label htmlFor="signupusername" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">Username</label>
+                    <input type="text" id="signupusername" name="signupusername" autoFocus ref={usernameInput} className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-pink-300 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="" />
 
                     {/* EMAIL FIELD */}
                     <label htmlFor="signupemail" className="text-gray-800 text-lg font-indieflower leading-tight tracking-normal">email</label>

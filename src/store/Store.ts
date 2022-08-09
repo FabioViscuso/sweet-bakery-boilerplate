@@ -19,4 +19,5 @@ export const store = configureStore({
     middleware: [/* loggingMiddleware, */ ThunkMiddleware]
 })
 
+// This type export is useful for autocomplete on TypeScript
 export type RootState = ReturnType<typeof store.getState>;
