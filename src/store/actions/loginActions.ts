@@ -19,7 +19,7 @@ export const signupNewUser = (username: string, email: string, password: string)
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const signupFunc = async () => {
-            const response = await fetch(`${process.env.BACKEND_URI}/api/auth/signup`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signup`,
                 {
                     method: 'POST',
                     headers: {
@@ -62,7 +62,7 @@ export const loginUser = (username: string, password: string): any /* ThunkActio
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         // function declaration
         const loginFunc = async () => {
-            const response = await fetch(`${process.env.BACKEND_URI}/api/auth/signin`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`,
                 {
                     method: 'POST',
                     headers: {
